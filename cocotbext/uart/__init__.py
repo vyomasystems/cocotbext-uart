@@ -25,3 +25,4 @@ THE SOFTWARE.
 from .version import __version__
 
 from .uart import UartSource, UartSink
+from .uart import UartParity
