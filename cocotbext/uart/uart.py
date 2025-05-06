@@ -331,11 +331,11 @@ class UartSink:
             b = 0
             for k in range(bits):
                 await bit_t
-                b |= bool(data.value.integer) << k
+                b |= bool(data.value) << k
 
             if self.parity != UartParity.NONE:
                 await bit_t
-                parity_bit_got = bool(data.value.integer)
+                parity_bit_got = bool(data.value)
                 parity_bit_expected = calc_parity(b, self.bits, self.parity)
                 if parity_bit_got != parity_bit_expected:
                     self.log.warning(
